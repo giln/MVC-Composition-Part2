@@ -1,45 +1,51 @@
-import UIKit
 import PlaygroundSupport
+import UIKit
 
 @testable import AppStoreFramework
 
+public class ImageAndTextTableViewCell: UITableViewCell {
 
+    // MARK: - Variables
 
-public protocol Listable {
-    var text: String { get }
-    var longText: String { get }
-}
+    let stackView = UIStackView()
+    let label = UILabel()
+    let rightImageView = UIImageView()
 
-class AppsViewController: UITableViewController {
+    // MARK: - Lifecycle
 
-    public var list = [Listable]() {
-        didSet {
-            tableView.reloadData()
-        }
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        commonInit()
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
 
-        tableView.estimatedRowHeight = 50
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Default")
-
+        commonInit()
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
-    }
+    private func commonInit() {
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        label.numberOfLines = 2
 
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Default", for: indexPath)
+        stackView.axis = .horizontal
+        stackView.distribution = .fillProportionally
+        stackView.alignment = .center
 
-        let element = list[indexPath.row]
+        stackView.spacing = 5
 
-        cell.textLabel?.text = element.text
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 
-        return cell
+        stackView.addArrangedSubview(label)
+        stackView.addArrangedSubview(rightImageView)
+
+        addSubview(stackView)
+
+        anchor(view: stackView)
+
+        rightImageView.widthAnchor.constraint(equalTo: rightImageView.heightAnchor, multiplier: 1.0).isActive = true
     }
 }
 
@@ -53,16 +59,67 @@ extension App: Listable {
     }
 }
 
+public protocol Listable {
+    var text: String { get }
+    var longText: String { get }
+    var thumbImageUrl: String { get }
+}
+
+class AppsViewController: UITableViewController {
+    public var list = [Listable]() {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        tableView.estimatedRowHeight = 50
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.register(ImageAndTextTableViewCell.self, forCellReuseIdentifier: ImageAndTextTableViewCell.defaultReuseIdentifier)
+    }
+
+    override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
+        return list.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ImageAndTextTableViewCell.defaultReuseIdentifier, for: indexPath)
+
+        let element = list[indexPath.row]
+
+        if let imageCell = cell as? ImageAndTextTableViewCell {
+
+            imageCell.label.text = element.longText
+
+            let url = URL(string: element.thumbImageUrl)
+
+            URLSession.shared.dataTask(with: url!) { data, _, _ in
+
+                guard let data = data else { return }
+
+                DispatchQueue.main.async {
+                    let image = UIImage(data: data)
+
+                    imageCell.rightImageView.image = image
+                }
+                }.resume()
+
+        }
+
+        return cell
+    }
+}
+
 let appsViewController = AppsViewController()
 
 let ressource = AppStoreRessource()
 
-ressource.getTopApps(top: 10) { (apps, error) in
+ressource.getTopApps(top: 10) { apps, _ in
     //
     print(apps)
     appsViewController.list = apps
 }
 
 PlaygroundPage.current.liveView = appsViewController
-
-
