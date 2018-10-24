@@ -17,7 +17,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let viewController = ViewController()
+        let viewController = AppsViewController()
+
+        let ressource = AppStoreRessource()
+
+        ressource.getTopApps(top: 100) { apps, _ in
+            //
+            
+            viewController.list = apps
+        }
 
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
