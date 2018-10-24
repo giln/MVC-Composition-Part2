@@ -11,7 +11,7 @@ import UIKit
 public class AppsViewCoordinator: UIViewController {
 
     // MARK: - Variables
-    private let appsViewController = AppsViewController()
+    private let appsViewController = ListViewController()
 
     // MARK: - Lifecycle
 

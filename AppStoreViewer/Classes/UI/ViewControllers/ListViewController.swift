@@ -1,5 +1,5 @@
 //
-//  AppsViewController.swift
+//  ListViewController.swift
 //  AppStoreViewer
 //
 //  Created by Gil Nakache on 24/10/2018.
@@ -14,7 +14,7 @@ public protocol Listable {
     var imageUrl: String { get }
 }
 
-class AppsViewController: UITableViewController {
+class ListViewController: UITableViewController {
 
     // MARK: - Variables
 
