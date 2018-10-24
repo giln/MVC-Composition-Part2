@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 
-
 public extension UIView {
     var safeLeadingAnchor: NSLayoutXAxisAnchor {
         if #available(iOS 11.0, *) {
@@ -59,8 +58,7 @@ public extension UIView {
         }
     }
 
-    public func constrain(to size: CGSize)
-    {
+    public func constrain(to size: CGSize) {
         translatesAutoresizingMaskIntoConstraints = false
         widthAnchor.constraint(equalToConstant: size.width).isActive = true
         heightAnchor.constraint(equalToConstant: size.height).isActive = true
@@ -71,15 +69,15 @@ public extension UIView {
         topAnchor.constraint(equalTo: useSafeAnchors ? view.safeTopAnchor : view.topAnchor, constant: margin).isActive = true
         leadingAnchor.constraint(equalTo: useSafeAnchors ? view.safeLeadingAnchor : view.leadingAnchor, constant: margin).isActive = true
         trailingAnchor.constraint(equalTo: useSafeAnchors ? view.safeTrailingAnchor : view.trailingAnchor, constant: -margin).isActive = true
-        bottomAnchor.constraint(equalTo: useSafeAnchors ? view.safeBottomAnchor: view.bottomAnchor, constant: -margin).isActive = true
+        bottomAnchor.constraint(equalTo: useSafeAnchors ? view.safeBottomAnchor : view.bottomAnchor, constant: -margin).isActive = true
     }
 
     public func anchor(view anchoredView: UIView, useSafeAnchors: Bool = true) {
         anchoredView.translatesAutoresizingMaskIntoConstraints = false
         anchoredView.topAnchor.constraint(equalTo: useSafeAnchors ? safeTopAnchor : topAnchor).isActive = true
-        anchoredView.leadingAnchor.constraint(equalTo: useSafeAnchors ? safeLeadingAnchor: leadingAnchor).isActive = true
-        anchoredView.trailingAnchor.constraint(equalTo: useSafeAnchors ? safeTrailingAnchor: trailingAnchor).isActive = true
-        anchoredView.bottomAnchor.constraint(equalTo: useSafeAnchors ? safeBottomAnchor: bottomAnchor).isActive = true
+        anchoredView.leadingAnchor.constraint(equalTo: useSafeAnchors ? safeLeadingAnchor : leadingAnchor).isActive = true
+        anchoredView.trailingAnchor.constraint(equalTo: useSafeAnchors ? safeTrailingAnchor : trailingAnchor).isActive = true
+        anchoredView.bottomAnchor.constraint(equalTo: useSafeAnchors ? safeBottomAnchor : bottomAnchor).isActive = true
     }
 
     public func center(in view: UIView) {
@@ -99,9 +97,8 @@ public extension UIView {
             leadingAnchor.constraint(greaterThanOrEqualTo: someSuperview.layoutMarginsGuide.leadingAnchor).isActive = true
             trailingAnchor.constraint(lessThanOrEqualTo: someSuperview.layoutMarginsGuide.trailingAnchor).isActive = true
 
-            //leadingAnchor.constraint(greaterThanOrEqualTo: someSuperview.layoutMarginsGuide.leadingAnchor, constant: 8.0).isActive = true
+            // leadingAnchor.constraint(greaterThanOrEqualTo: someSuperview.layoutMarginsGuide.leadingAnchor, constant: 8.0).isActive = true
         }
-
     }
 
     public func anchor(views anchoredViews: [UIView]) {

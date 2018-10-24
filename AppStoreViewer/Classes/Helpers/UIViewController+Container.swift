@@ -9,13 +9,11 @@
 import UIKit
 
 /// Extension used to facilitate adding child viewControllers in a viewController
-public extension UIViewController
-{
+public extension UIViewController {
     /// Embeds a view controller and also adds it's view in the view hierarchay
     ///
     /// - Parameter viewController: ViewController to add
-    public func add(asChildViewController viewController: UIViewController, anchored: Bool = true, subview: UIView? = nil)
-    {
+    public func add(asChildViewController viewController: UIViewController, anchored: Bool = true, subview: UIView? = nil) {
         let someView: UIView = subview ?? view
 
         // Notify Child View Controller before
@@ -27,8 +25,7 @@ public extension UIViewController
         // Add Child View as Subview
         someView.addSubview(viewController.view)
 
-        if anchored
-        {
+        if anchored {
             // Embeded viewControllers should not use safeAnchors
             anchor(view: viewController.view, useSafeAnchors: false)
         }
@@ -40,10 +37,8 @@ public extension UIViewController
     /// Removes a view controller from both view controller and view hierachies
     ///
     /// - Parameter viewControllerToRemove: ViewController to remove
-    public func remove(viewControllerToRemove: UIViewController?)
-    {
-        guard let viewController = viewControllerToRemove else
-        {
+    public func remove(viewControllerToRemove: UIViewController?) {
+        guard let viewController = viewControllerToRemove else {
             return
         }
 

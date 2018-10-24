@@ -4,7 +4,6 @@ import UIKit
 @testable import AppStoreFramework
 
 public class ImageAndTextTableViewCell: UITableViewCell {
-
     // MARK: - Variables
 
     let stackView = UIStackView()
@@ -26,8 +25,7 @@ public class ImageAndTextTableViewCell: UITableViewCell {
     }
 
     private func commonInit() {
-
-        label.numberOfLines = 2
+        label.numberOfLines = 0
 
         stackView.axis = .horizontal
         stackView.distribution = .fillProportionally
@@ -41,13 +39,17 @@ public class ImageAndTextTableViewCell: UITableViewCell {
         stackView.addArrangedSubview(label)
         stackView.addArrangedSubview(rightImageView)
 
-        addSubview(stackView)
+        // Necessary only in playgrounds
+        anchor(view: contentView)
 
-        anchor(view: stackView)
+        contentView.addSubview(stackView)
 
-        rightImageView.widthAnchor.constraint(equalTo: rightImageView.heightAnchor, multiplier: 1.0).isActive = true
+        contentView.anchor(view: stackView)
+
+        rightImageView.constrain(to: CGSize(width: 50, height: 50))
     }
 }
+
 
 extension App: Listable {
     public var text: String {
@@ -75,7 +77,7 @@ class AppsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.estimatedRowHeight = 50
+        tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
         tableView.register(ImageAndTextTableViewCell.self, forCellReuseIdentifier: ImageAndTextTableViewCell.defaultReuseIdentifier)
     }
@@ -89,23 +91,21 @@ class AppsViewController: UITableViewController {
 
         let element = list[indexPath.row]
 
-        if let imageCell = cell as? ImageAndTextTableViewCell {
-
-            imageCell.label.text = element.longText
-
-            let url = URL(string: element.thumbImageUrl)
-
-            URLSession.shared.dataTask(with: url!) { data, _, _ in
+        if let imageCell = cell as? ImageAndTextTableViewCell, let url = URL(string: element.thumbImageUrl) {
+            imageCell.label.text = element.text
+            URLSession.shared.dataTask(with: url) { data, _, _ in
 
                 guard let data = data else { return }
 
                 DispatchQueue.main.async {
+                    imageCell.label.text = element.text
+
                     let image = UIImage(data: data)
 
-                    imageCell.rightImageView.image = image
-                }
-                }.resume()
+                imageCell.rightImageView.image = image
 
+                   }
+            }.resume()
         }
 
         return cell
@@ -116,10 +116,12 @@ let appsViewController = AppsViewController()
 
 let ressource = AppStoreRessource()
 
-ressource.getTopApps(top: 10) { apps, _ in
+ressource.getTopApps(top: 100) { apps, _ in
     //
     print(apps)
     appsViewController.list = apps
 }
 
 PlaygroundPage.current.liveView = appsViewController
+
+// appsViewController.list = [app]
