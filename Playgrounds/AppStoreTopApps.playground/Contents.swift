@@ -3,14 +3,27 @@ import UIKit
 
 @testable import AppStoreFramework
 
-let appsViewController = AppsViewController()
+public class AppsViewCoordinator: UIViewController {
 
-let ressource = AppStoreRessource()
+    // MARK: - Variables
+    private let appsViewController = AppsViewController()
 
-ressource.getTopApps(top: 100) { apps, _ in
-    //
-    print(apps)
-    appsViewController.list = apps
+    // MARK: - Lifecycle
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+
+        add(asChildViewController: appsViewController)
+
+        let ressource = AppStoreRessource()
+
+        ressource.getTopApps(top: 100) { apps, _ in
+            //
+            self.appsViewController.list = apps
+        }
+
+    }
+
 }
 
-PlaygroundPage.current.liveView = appsViewController
+PlaygroundPage.current.liveView = AppsViewCoordinator()
