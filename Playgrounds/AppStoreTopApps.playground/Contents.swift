@@ -3,12 +3,36 @@ import UIKit
 
 @testable import AppStoreFramework
 
+public class DownloadImageView: UIImageView, DataFetching {
+    // MARK: - Variables
+
+    public var url: URL? {
+        didSet {
+            image = nil
+            if let downloadURL = url {
+                fetchData(url: downloadURL) { data, _ in
+
+                    guard let data = data else { return }
+
+                    let image = UIImage(data: data)
+                    DispatchQueue.main.async {
+                        // On vérifie que l'URL n'a pas changé
+                        if downloadURL == self.url {
+                            self.image = image
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 public class ImageAndTextTableViewCell: UITableViewCell {
     // MARK: - Variables
 
     let stackView = UIStackView()
     let label = UILabel()
-    let rightImageView = UIImageView()
+    let rightImageView = DownloadImageView()
 
     // MARK: - Lifecycle
 
@@ -50,7 +74,6 @@ public class ImageAndTextTableViewCell: UITableViewCell {
     }
 }
 
-
 extension App: Listable {
     public var text: String {
         return name
@@ -91,21 +114,9 @@ class AppsViewController: UITableViewController {
 
         let element = list[indexPath.row]
 
-        if let imageCell = cell as? ImageAndTextTableViewCell, let url = URL(string: element.thumbImageUrl) {
+        if let imageCell = cell as? ImageAndTextTableViewCell {
             imageCell.label.text = element.text
-            URLSession.shared.dataTask(with: url) { data, _, _ in
-
-                guard let data = data else { return }
-
-                DispatchQueue.main.async {
-                    imageCell.label.text = element.text
-
-                    let image = UIImage(data: data)
-
-                imageCell.rightImageView.image = image
-
-                   }
-            }.resume()
+            imageCell.rightImageView.url = URL(string:element.thumbImageUrl)
         }
 
         return cell
@@ -123,5 +134,3 @@ ressource.getTopApps(top: 100) { apps, _ in
 }
 
 PlaygroundPage.current.liveView = appsViewController
-
-// appsViewController.list = [app]
