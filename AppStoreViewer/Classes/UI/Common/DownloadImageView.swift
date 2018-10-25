@@ -11,13 +11,18 @@ import UIKit
 public class DownloadImageView: UIImageView, DataFetching {
     // MARK: - Variables
 
+    public var placeHolder: UIImage? = UIImage.from(color: #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0), size: CGSize(width: 53.0, height: 53.0))
+
     public var url: URL? {
         didSet {
-            image = nil
+            image = placeHolder
             if let downloadURL = url {
                 fetchData(url: downloadURL) { data, _ in
 
-                    guard let data = data else { return }
+                    guard let data = data else {
+                        self.image = self.placeHolder
+                        return
+                    }
 
                     let image = UIImage(data: data)
                     DispatchQueue.main.async {

@@ -29,6 +29,8 @@
 		A737B34A2181C021004B3E76 /* ImageAndTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737B3482181C021004B3E76 /* ImageAndTextView.swift */; };
 		A737B34C2181C19B004B3E76 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737B34B2181C19B004B3E76 /* DetailViewController.swift */; };
 		A737B34D2181C19B004B3E76 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A737B34B2181C19B004B3E76 /* DetailViewController.swift */; };
+		A76AAC94218205E800F37388 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAC93218205E800F37388 /* UIImage+Color.swift */; };
+		A76AAC95218205E800F37388 /* UIImage+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76AAC93218205E800F37388 /* UIImage+Color.swift */; };
 		A78E82272177693E007C5FB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E82262177693E007C5FB5 /* AppDelegate.swift */; };
 		A78E822E2177693F007C5FB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A78E822D2177693F007C5FB5 /* Assets.xcassets */; };
 		A78E82312177693F007C5FB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A78E822F2177693F007C5FB5 /* LaunchScreen.storyboard */; };
@@ -67,6 +69,7 @@
 		A7304C112180CB5C003CAE94 /* AppDetail.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppDetail.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A737B3482181C021004B3E76 /* ImageAndTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndTextView.swift; sourceTree = "<group>"; };
 		A737B34B2181C19B004B3E76 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		A76AAC93218205E800F37388 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
 		A77238E3217779710065B650 /* Blank.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Blank.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A78E82232177693E007C5FB5 /* AppStoreViewer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStoreViewer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78E82262177693E007C5FB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 				A717CE0D21777E0000B5A8A2 /* UIViewController+Container.swift */,
 				A717CE0E21777E0000B5A8A2 /* UIViewController+Anchor.swift */,
 				A717CE0F21777E0000B5A8A2 /* ReusableView.swift */,
+				A76AAC93218205E800F37388 /* UIImage+Color.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -406,6 +410,7 @@
 				A7304C052180C4FD003CAE94 /* ImageAndTextTableViewCell.swift in Sources */,
 				A78E8281217771D1007C5FB5 /* AppStoreRessource.swift in Sources */,
 				A78E82272177693E007C5FB5 /* AppDelegate.swift in Sources */,
+				A76AAC94218205E800F37388 /* UIImage+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +435,7 @@
 				A7304C092180C542003CAE94 /* ListViewController.swift in Sources */,
 				A78E827F217771A9007C5FB5 /* DataFetching.swift in Sources */,
 				A78E8282217771D1007C5FB5 /* AppStoreRessource.swift in Sources */,
+				A76AAC95218205E800F37388 /* UIImage+Color.swift in Sources */,
 				A7304C0F2180C950003CAE94 /* AppsViewCoordinator.swift in Sources */,
 				A717CE1321777E0000B5A8A2 /* UIViewController+Container.swift in Sources */,
 				A737B34A2181C021004B3E76 /* ImageAndTextView.swift in Sources */,

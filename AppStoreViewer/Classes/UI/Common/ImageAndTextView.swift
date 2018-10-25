@@ -30,11 +30,11 @@ public class ImageAndTextView: UIView {
     }
 
     private func commonInit() {
-        label.numberOfLines = 0
+        label.numberOfLines = 1
 
         stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.alignment = .fill
 
         stackView.spacing = 5
 
@@ -47,7 +47,5 @@ public class ImageAndTextView: UIView {
         addSubview(stackView)
 
         anchor(view: stackView)
-
-        rightImageView.constrain(to: CGSize(width: 50, height: 50))
     }
 }
