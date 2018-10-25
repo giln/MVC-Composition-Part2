@@ -44,8 +44,8 @@ class ListViewController: UITableViewController {
         let element = list[indexPath.row]
 
         if let imageCell = cell as? ImageAndTextTableViewCell {
-            imageCell.label.text = element.text
-            imageCell.rightImageView.url = URL(string:element.imageUrl)
+            imageCell.layout.label.text = element.text
+            imageCell.layout.rightImageView.url = URL(string:element.imageUrl)
         }
 
         return cell

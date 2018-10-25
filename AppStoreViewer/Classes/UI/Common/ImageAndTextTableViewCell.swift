@@ -9,11 +9,10 @@
 import UIKit
 
 public class ImageAndTextTableViewCell: UITableViewCell {
+
     // MARK: - Variables
 
-    let stackView = UIStackView()
-    let label = UILabel()
-    let rightImageView = DownloadImageView()
+    let layout = ImageAndTextView()
 
     // MARK: - Lifecycle
 
@@ -30,27 +29,11 @@ public class ImageAndTextTableViewCell: UITableViewCell {
     }
 
     private func commonInit() {
-        label.numberOfLines = 0
-
-        stackView.axis = .horizontal
-        stackView.distribution = .fillProportionally
-        stackView.alignment = .center
-
-        stackView.spacing = 5
-
-        stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-
-        stackView.addArrangedSubview(label)
-        stackView.addArrangedSubview(rightImageView)
 
         // Necessary only in playgrounds
-        anchor(view: contentView)
-
-        contentView.addSubview(stackView)
-
-        contentView.anchor(view: stackView)
-
-        rightImageView.constrain(to: CGSize(width: 50, height: 50))
+        //anchor(view: contentView)
+        
+        contentView.addSubview(layout)
+        contentView.anchor(view: layout)
     }
 }

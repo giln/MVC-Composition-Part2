@@ -8,25 +8,41 @@
 
 import UIKit
 
-public class AppsViewCoordinator: UIViewController {
-
+public class AppsViewCoordinator: UIViewController, UITableViewDelegate {
     // MARK: - Variables
+
     private let appsViewController = ListViewController()
+
+    private lazy var navController = UINavigationController(rootViewController: appsViewController)
+
+    private var apps = [App]()
 
     // MARK: - Lifecycle
 
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        add(asChildViewController: appsViewController)
+        appsViewController.tableView.delegate = self
+
+        add(asChildViewController: navController)
 
         let ressource = AppStoreRessource()
 
         ressource.getTopApps(top: 100) { apps, _ in
             //
+            self.apps = apps
             self.appsViewController.list = apps
         }
-
     }
 
+    // MARK: - UITableViewDelegate
+
+    public func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailViewController = DetailViewController()
+
+        let detail = apps[indexPath.row]
+
+        detailViewController.detail = detail
+        navController.pushViewController(detailViewController, animated: true)
+    }
 }
