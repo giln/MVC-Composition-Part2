@@ -15,9 +15,11 @@ public class DetailViewController: UIViewController {
 
     // MARK: - Private Variables
 
-    private var titleLabel = UILabel()
-    private var longLabel = UILabel()
-    private var stackView = UIStackView()
+    private let titleLabel = UILabel()
+    private let longLabel = UILabel()
+    private let stackView = UIStackView()
+    private let scrollView = UIScrollView()
+
 
     // MARK: - Lifecyle
 
@@ -28,11 +30,23 @@ public class DetailViewController: UIViewController {
 
         stackView.axis = .vertical
         stackView.alignment = .fill
+        stackView.distribution = .fill
 
-        view.addSubview(stackView)
+        scrollView.addSubview(stackView)
+        // Use safe anchors = false
+        scrollView.anchor(view: stackView, useSafeAnchors: false)
+
+        view.addSubview(scrollView)
+
+        anchor(view: scrollView)
+
+       // Contrainte supplémentaire pour scroller verticalement uniquement
+        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+
+        longLabel.numberOfLines = 0
         stackView.addArrangedSubview(titleLabel)
+
         stackView.addArrangedSubview(longLabel)
-        anchor(view: stackView)
     }
 }
 
@@ -70,7 +84,7 @@ public class AppsViewCoordinator1: UIViewController, UITableViewDelegate {
 
         let detail = apps[indexPath.row]
 
-           detailViewController.detail = detail
+        detailViewController.detail = detail
         navController.pushViewController(detailViewController, animated: true)
     }
 }
