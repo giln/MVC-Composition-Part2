@@ -44,6 +44,7 @@
 		A78E827F217771A9007C5FB5 /* DataFetching.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E827D217771A9007C5FB5 /* DataFetching.swift */; };
 		A78E8281217771D1007C5FB5 /* AppStoreRessource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E8280217771D1007C5FB5 /* AppStoreRessource.swift */; };
 		A78E8282217771D1007C5FB5 /* AppStoreRessource.swift in Sources */ = {isa = PBXBuildFile; fileRef = A78E8280217771D1007C5FB5 /* AppStoreRessource.swift */; };
+		A7FA26FD218755080021ECCB /* playgroundController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FA26FC218755080021ECCB /* playgroundController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -87,6 +88,7 @@
 		A78E827A2177717A007C5FB5 /* App+Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Decodable.swift"; sourceTree = "<group>"; };
 		A78E827D217771A9007C5FB5 /* DataFetching.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetching.swift; sourceTree = "<group>"; };
 		A78E8280217771D1007C5FB5 /* AppStoreRessource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRessource.swift; sourceTree = "<group>"; };
+		A7FA26FC218755080021ECCB /* playgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playgroundController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -238,6 +240,7 @@
 			children = (
 				A78E827021777095007C5FB5 /* AppStoreFramework.h */,
 				A78E827121777095007C5FB5 /* Info.plist */,
+				A7FA26FC218755080021ECCB /* playgroundController.swift */,
 			);
 			path = AppStoreFramework;
 			sourceTree = "<group>";
@@ -434,6 +437,7 @@
 				A7304C0C2180C589003CAE94 /* App+Listable.swift in Sources */,
 				A7304C092180C542003CAE94 /* ListViewController.swift in Sources */,
 				A78E827F217771A9007C5FB5 /* DataFetching.swift in Sources */,
+				A7FA26FD218755080021ECCB /* playgroundController.swift in Sources */,
 				A78E8282217771D1007C5FB5 /* AppStoreRessource.swift in Sources */,
 				A76AAC95218205E800F37388 /* UIImage+Color.swift in Sources */,
 				A7304C0F2180C950003CAE94 /* AppsViewCoordinator.swift in Sources */,
