@@ -19,11 +19,11 @@ public extension UIViewController {
         // Notify Child View Controller before
         viewController.willMove(toParent: self)
 
-        // Add Child View Controller
-        addChild(viewController)
-
         // Add Child View as Subview
         someView.addSubview(viewController.view)
+
+        // Add Child View Controller
+        addChild(viewController)
 
         if anchored {
             // Embeded viewControllers should not use safeAnchors
