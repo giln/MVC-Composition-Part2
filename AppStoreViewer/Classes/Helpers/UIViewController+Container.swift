@@ -24,7 +24,7 @@ public extension UIViewController {
 
         if anchored {
             // Embeded viewControllers should not use safeAnchors
-            anchor(view: viewController.view, useSafeAnchors: false)
+            someView.anchor(view: viewController.view, useSafeAnchors: false)
         }
 
         // Notify Child View Controller after
