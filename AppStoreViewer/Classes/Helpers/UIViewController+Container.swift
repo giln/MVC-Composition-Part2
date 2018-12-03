@@ -16,9 +16,6 @@ public extension UIViewController {
     public func add(asChildViewController viewController: UIViewController, anchored: Bool = true, subview: UIView? = nil) {
         let someView: UIView = subview ?? view
 
-        // Notify Child View Controller before
-        viewController.willMove(toParent: self)
-
         // Add Child View as Subview
         someView.addSubview(viewController.view)
 
@@ -50,8 +47,5 @@ public extension UIViewController {
 
         // Remove ViewController
         viewController.removeFromParent()
-
-        // Notify Child View Controller after
-        viewController.didMove(toParent: nil)
     }
 }
