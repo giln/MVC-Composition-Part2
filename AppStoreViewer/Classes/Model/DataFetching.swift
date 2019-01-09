@@ -18,9 +18,7 @@ extension DataFetching {
         let session = URLSession.shared
 
         session.dataTask(with: url) { (data, response, error) in
-            DispatchQueue.main.async {
                 completion(data, error)
-            }
             }.resume()
 
     }

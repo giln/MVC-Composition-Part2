@@ -46,13 +46,6 @@ public class ImageAndTextTableViewCell: UITableViewCell {
         contentView.anchor(view: stackView)
         contentView.backgroundColor = UIColor.red
     }
-
-//    public override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        stackView.frame = bounds
-//
-//    }
 }
 
 let frame = CGRect(x: 0, y: 0, width: 320, height: 100)
@@ -61,9 +54,9 @@ let cell = ImageAndTextTableViewCell(frame: frame)
 
 cell.frame = frame
 cell.label.text = "ceci est un texte un peu long qsdq qsd qsd q sdqsd  qs dq sd qs "
-cell.label.text = "toto"
+//cell.label.text = "toto"
 
-cell.rightImageView.image = UIImage(named: "image")
+//cell.rightImageView.image = UIImage(named: "image")
 PlaygroundPage.current.liveView = cell
 
 

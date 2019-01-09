@@ -22,7 +22,11 @@ public enum AppType: String {
     }
 }
 
-public class AppStoreRessource: DataFetching {
+public class NetworkFetcher: DataFetching {
+
+}
+
+public class AppStoreRessource {
 
     private struct ServerResponse: Decodable {
         let feed: Feed
@@ -32,6 +36,8 @@ public class AppStoreRessource: DataFetching {
         let entry: [App]
     }
 
+    public var dataFetcher: DataFetching = NetworkFetcher()
+
     public func getApps(top: Int, appType: AppType, completion: @escaping ([App], Error?) -> Void) {
 
         let limitString = "/limit=\(top)/json"
@@ -40,13 +46,15 @@ public class AppStoreRessource: DataFetching {
 
         let url = URL(string: urlString)
 
-        fetchData(url: url!) { (data, dataError) in
+        dataFetcher.fetchData(url: url!) { (data, dataError) in
 
             var apps = [App]()
             var parseError = dataError
 
             defer {
-                completion(apps, parseError)
+                DispatchQueue.main.async {
+                    completion(apps, parseError)
+                }
             }
 
             guard let data = data else {

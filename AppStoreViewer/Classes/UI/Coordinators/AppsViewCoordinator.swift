@@ -21,6 +21,8 @@ public class AppsViewCoordinator: UIViewController, UITableViewDelegate {
 
     private let appsViewController = ListViewController()
 
+    private lazy var loadingViewController = LoadingViewController(contentViewController: appsViewController)
+
     private var apps = [App]()
 
     // MARK: - Lifecycle
@@ -31,7 +33,7 @@ public class AppsViewCoordinator: UIViewController, UITableViewDelegate {
         title = appType.rawValue
         appsViewController.tableView.delegate = self
 
-        add(asChildViewController: appsViewController)
+        add(asChildViewController: loadingViewController)
     }
 
     public override func viewWillAppear(_ animated: Bool) {
@@ -39,8 +41,10 @@ public class AppsViewCoordinator: UIViewController, UITableViewDelegate {
 
         let ressource = AppStoreRessource()
 
-        ressource.getApps(top: 100, appType: appType) { apps, _ in
+        loadingViewController.startLoading()
+        ressource.getApps(top: 200, appType: appType) { apps, _ in
             //
+            self.loadingViewController.endLoading()
             self.apps = apps
             self.appsViewController.list = apps
         }
