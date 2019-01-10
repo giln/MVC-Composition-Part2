@@ -73,7 +73,6 @@
 		A7304C072180C542003CAE94 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A7304C0A2180C589003CAE94 /* App+Listable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Listable.swift"; sourceTree = "<group>"; };
 		A7304C0D2180C950003CAE94 /* AppsViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsViewCoordinator.swift; sourceTree = "<group>"; };
-		A7304C112180CB5C003CAE94 /* AppDetail.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppDetail.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A737B3482181C021004B3E76 /* ImageAndTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAndTextView.swift; sourceTree = "<group>"; };
 		A737B34B2181C19B004B3E76 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		A76AAC93218205E800F37388 /* UIImage+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Color.swift"; sourceTree = "<group>"; };
@@ -86,7 +85,6 @@
 		A78E82372177693F007C5FB5 /* AppStoreViewerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreViewerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78E823B2177693F007C5FB5 /* AppStoreViewerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreViewerTests.swift; sourceTree = "<group>"; };
 		A78E823D2177693F007C5FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A78E824921776C5F007C5FB5 /* AppStoreTopApps.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = AppStoreTopApps.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		A78E826E21777095007C5FB5 /* AppStoreFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppStoreFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A78E827021777095007C5FB5 /* AppStoreFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStoreFramework.h; sourceTree = "<group>"; };
 		A78E827121777095007C5FB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -96,6 +94,7 @@
 		A78E8280217771D1007C5FB5 /* AppStoreRessource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreRessource.swift; sourceTree = "<group>"; };
 		A792D624219EC04800FA3451 /* SegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedViewController.swift; sourceTree = "<group>"; };
 		A792D627219EC10100FA3451 /* RootAppsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootAppsCoordinator.swift; sourceTree = "<group>"; };
+		A7B8689421E7448200A6DB8D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A7B8EA6621E3A75D007C00CB /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
 		A7FA26FC218755080021ECCB /* playgroundController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = playgroundController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -180,6 +179,7 @@
 		A78E821A2177693E007C5FB5 = {
 			isa = PBXGroup;
 			children = (
+				A7B8689421E7448200A6DB8D /* README.md */,
 				A78E824821776C11007C5FB5 /* Playgrounds */,
 				A78E82252177693E007C5FB5 /* AppStoreViewer */,
 				A78E823A2177693F007C5FB5 /* AppStoreViewerTests */,
@@ -240,9 +240,7 @@
 		A78E824821776C11007C5FB5 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				A78E824921776C5F007C5FB5 /* AppStoreTopApps.playground */,
 				A77238E3217779710065B650 /* Blank.playground */,
-				A7304C112180CB5C003CAE94 /* AppDetail.playground */,
 			);
 			path = Playgrounds;
 			sourceTree = "<group>";

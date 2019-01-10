@@ -1,5 +1,5 @@
-# MVC-Composition
-Code from Tutorial about MVC-Composition:
+# MVC-Composition Part 2
+Code from Tutorial about MVC-Composition Part 2:
 
 
-[https://ngrp.github.io/FabriqueMobile/MVC-Composition/](https://ngrp.github.io/FabriqueMobile/MVC-Composition/)
+[https://ngrp.github.io/FabriqueMobile/MVC-Composition-Part2/](https://ngrp.github.io/FabriqueMobile/MVC-Composition-Part2/)
