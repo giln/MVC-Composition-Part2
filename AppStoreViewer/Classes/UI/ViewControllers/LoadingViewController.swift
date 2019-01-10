@@ -43,10 +43,12 @@ public class LoadingViewController: UIViewController {
     // MARK: - Public functions
 
     public func startLoading() {
+        contentViewController.view.isHidden = true
         activityIndicator.startAnimating()
     }
 
     public func endLoading() {
         activityIndicator.stopAnimating()
+        contentViewController.view.isHidden = false
     }
 }
